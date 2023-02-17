@@ -1,5 +1,5 @@
 import Post from "./Post";
-import classes from "./PostList.module.css"
+import classes from "./PostList.module.css";
 
 function PostList() {
   return (
