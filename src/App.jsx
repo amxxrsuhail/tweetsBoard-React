@@ -2,6 +2,7 @@ import { useState } from "react";
 import NewPost from "./components/NewPost";
 import PostList from "./components/PostList";
 import Modal from "./components/Modal";
+import Header from "./components/Header";
 
 function App() {
   const [enteredBody, setEnteredBody] = useState("");
@@ -20,15 +21,21 @@ function App() {
 
   return (
     // its important to return all components inside one html tag
-    <main>
-      {/* here latest form of conditional operator is applied to exit dialog box upon click on the backdrop  */}
-      {modalVisiblity ? (
-        <Modal toClose={modalHandler}>
-          <NewPost onBodyChange={bodyHandler} onAuthorChange={authorHandler} />
-        </Modal>
-      ) : null}
-      <PostList newBody={enteredBody} newAuthor={enteredAuthor} />
-    </main>
+    <>
+      <Header />
+      <main>
+        {/* here latest form of conditional operator is applied to exit dialog box upon click on the backdrop  */}
+        {modalVisiblity ? (
+          <Modal toClose={modalHandler}>
+            <NewPost
+              onBodyChange={bodyHandler}
+              onAuthorChange={authorHandler}
+            />
+          </Modal>
+        ) : null}
+        <PostList newBody={enteredBody} newAuthor={enteredAuthor} />
+      </main>
+    </>
   );
 }
 
