@@ -1,6 +1,7 @@
 import { useState } from "react";
 import NewPost from "./components/NewPost";
 import PostList from "./components/PostList";
+import Modal from "./components/Modal";
 
 function App() {
   const [enteredBody, setEnteredBody] = useState("");
@@ -16,7 +17,9 @@ function App() {
   return (
     // its important to return all components inside one html tag
     <main>
-      <NewPost onBodyChange={bodyHandler} onAuthorChange={authorHandler} />
+      <Modal >
+        <NewPost onBodyChange={bodyHandler} onAuthorChange={authorHandler} />
+      </Modal>
       <PostList newBody={enteredBody} newAuthor={enteredAuthor} />
     </main>
   );
