@@ -1,12 +1,10 @@
-import Post from "./components/Post";
+import PostList from "./components/PostList";
 
 function App() {
   return (
     // its important to return all components inside one html tag
     <main>
-      <Post author="ameer" body="this is a brushup of react" />
-      <Post author="Suhail" body="I love react" />
-      <Post author="unknown" body="studying react" />
+      <PostList />
     </main>
   );
 }
