@@ -1,14 +1,7 @@
-import { useState } from "react";
 import classes from "./NewPost.module.css";
 
-function NewPost() {
+function NewPost(props) {
   // all this is done so that the react runs the fucntion again after the use inputs and chamges the value
-  const [enteredBody, setEnteredBody] = useState("");
-
-  function inputHandler(event) {
-    setEnteredBody(event.target.value);
-  }
-
   return (
     <form className={classes.form}>
       <p>
@@ -18,13 +11,16 @@ function NewPost() {
           id="body"
           required
           rows={3}
-          onChange={inputHandler}
+          onChange={props.onBodyChange}
         ></textarea>
       </p>
       <p>
         <label htmlFor="name">Your name</label>
-        <textarea type="text" id="name"></textarea>
-        <p>{enteredBody}</p>
+        <textarea
+          type="text"
+          id="name"
+          onChange={props.onAuthorChange}
+        ></textarea>
       </p>
     </form>
   );
