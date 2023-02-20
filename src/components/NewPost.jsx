@@ -1,5 +1,7 @@
 import classes from "./NewPost.module.css";
 
+// the props can be also given as below so that u dont have to use props. for calling the function
+// function NewPost({onBodyChange,onAuthorChange,onCancel,onSubmit})
 function NewPost(props) {
   // all this is done so that the react runs the fucntion again after the use inputs and chamges the value
   return (
@@ -23,8 +25,10 @@ function NewPost(props) {
         ></textarea>
       </p>
       <p className={classes.actions}>
-        <button type="button" onClick={props.onCancel}>Cancel</button>
-        <button>Submit</button>
+        <button type="button" onClick={props.onCancel}>
+          Cancel
+        </button>
+        <button onClick={props.onSubmit}>Submit</button>
       </p>
     </form>
   );
