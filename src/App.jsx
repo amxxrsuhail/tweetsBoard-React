@@ -3,7 +3,6 @@ import NewPost from "./components/NewPost";
 import PostList from "./components/PostList";
 import Modal from "./components/Modal";
 import Header from "./components/Header";
-// import classes from "./index.css"
 
 function App() {
   const [enteredBody, setEnteredBody] = useState("");
@@ -53,15 +52,24 @@ function App() {
             />
           </Modal>
         ) : null}
-        <ul>
-          {posts.map((post) => (
-            <PostList
-              key={post.body}
-              newBody={post.body}
-              newAuthor={post.author}
-            />
-          ))}
-        </ul>
+        {posts.length > 0 && (
+          <ul>
+            {posts.map((post) => (
+              <PostList
+                key={post.body}
+                newBody={post.body}
+                newAuthor={post.author}
+              />
+            ))}
+          </ul>
+        )}
+
+        {posts.length === 0 && (
+          <div style={{ textAlign: "center", color: "white" }}>
+            <h3>There are no tweets yet.</h3>
+            <p>Start adding some!</p>
+          </div>
+        )}
       </main>
     </>
   );
