@@ -22,6 +22,10 @@ function NewPost(props) {
           onChange={props.onAuthorChange}
         ></textarea>
       </p>
+      <p className={classes.actions}>
+        <button type="button" onClick={props.onCancel}>Cancel</button>
+        <button>Submit</button>
+      </p>
     </form>
   );
 }

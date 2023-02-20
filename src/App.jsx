@@ -33,6 +33,7 @@ function App() {
             <NewPost
               onBodyChange={bodyHandler}
               onAuthorChange={authorHandler}
+              onCancel={hideModalHandler}
             />
           </Modal>
         ) : null}

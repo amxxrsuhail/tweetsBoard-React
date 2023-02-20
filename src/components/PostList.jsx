@@ -5,6 +5,7 @@ function PostList(props) {
   return (
     <ul className={classes.posts}>
       <Post author={props.newAuthor} body={props.newBody} />
+      <Post author="Ameer" body="I love React" />
     </ul>
   );
 }
