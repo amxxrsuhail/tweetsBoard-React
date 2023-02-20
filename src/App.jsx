@@ -7,7 +7,7 @@ import Header from "./components/Header";
 function App() {
   const [enteredBody, setEnteredBody] = useState("");
   const [enteredAuthor, setEnteredAuthor] = useState("");
-  const [modalVisiblity, setModalVisibility] = useState(true);
+  const [modalIsVisible, setModalIsVisible] = useState(false);
 
   function bodyHandler(event) {
     setEnteredBody(event.target.value);
@@ -15,18 +15,21 @@ function App() {
   function authorHandler(event) {
     setEnteredAuthor(event.target.value);
   }
-  function modalHandler() {
-    setModalVisibility(false);
+  function hideModalHandler() {
+    setModalIsVisible(false);
+  }
+  function showModalHandler() {
+    setModalIsVisible(true);
   }
 
   return (
     // its important to return all components inside one html tag
     <>
-      <Header />
+      <Header toShow={showModalHandler}/>
       <main>
         {/* here latest form of conditional operator is applied to exit dialog box upon click on the backdrop  */}
-        {modalVisiblity ? (
-          <Modal toClose={modalHandler}>
+        {modalIsVisible ? (
+          <Modal toClose={hideModalHandler}>
             <NewPost
               onBodyChange={bodyHandler}
               onAuthorChange={authorHandler}

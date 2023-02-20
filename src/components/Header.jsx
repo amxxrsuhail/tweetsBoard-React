@@ -10,7 +10,7 @@ function Header(props) {
         Tweet Board
       </h1>
       <p>
-        <button className={classes.button} onClick={props.toshow}>
+        <button className={classes.button} onClick={props.toShow}>
           <MdPostAdd size={18} />
           New Tweet
         </button>
